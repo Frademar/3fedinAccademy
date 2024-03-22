@@ -1,9 +1,10 @@
 <ng-container *ngIf="infoNazione">
-    {{infoNazione | json}}
+<img src={{infoNazione[0].flags.png}} alt={{infoNazione[0].name.common}}>
 <p>Nome: {{infoNazione[0].name.common}}</p>
 <p>Capitale: {{infoNazione[0].capital}}</p>
 <p>Continente: {{infoNazione[0].region}}</p>
-<!-- {{infoNazione[0].languages | json}} -->
-    <!-- {{(infoNazione[0].languages| chiavi)}} -->
-<p *ngFor="let lingua of infoNazione[0].languages; let i = index">Lingua {{i}}: {{listaChiaviLingua(lingua,i)}}</p>
+<p *ngFor="let lingua of listaChiaviLingua()">Lingua: {{infoNazione[0].languages[lingua]}}</p>
+<p>Guida: {{infoNazione[0].car.side}}</p>
+<p>Targa: {{infoNazione[0].car.signs}}</p>
+<p>Popolazione: {{infoNazione[0].population}}</p>
 </ng-container>

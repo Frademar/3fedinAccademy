@@ -9,8 +9,8 @@ import { NazioniService } from '../services/nazioni.service';
 })
 export class DettagliComponent {
   nazione : string="";
-  infoNazione !: any[];
-  listaChiavi : string[]=[];
+  infoNazione : any[]=[];
+  listaChiavi : any[]=[];
 
   constructor(private router : ActivatedRoute, private nazioniService: NazioniService){}
 
@@ -24,11 +24,9 @@ export class DettagliComponent {
       )
   }
 
-  listaChiaviLingua(listaLingue : any[], index : number){
-    for(const key in listaLingue) {
-      this.listaChiavi.push(key);
-    }
-    return this.listaChiavi[index];
+  listaChiaviLingua(){
+    this.listaChiavi=Object.keys(this.infoNazione[0].languages);
+    return this.listaChiavi;
   }
 
 }
