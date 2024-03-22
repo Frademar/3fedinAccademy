@@ -1,0 +1,9 @@
+<ng-container *ngIf="infoNazione">
+    {{infoNazione | json}}
+<p>Nome: {{infoNazione[0].name.common}}</p>
+<p>Capitale: {{infoNazione[0].capital}}</p>
+<p>Continente: {{infoNazione[0].region}}</p>
+<!-- {{infoNazione[0].languages | json}} -->
+    <!-- {{(infoNazione[0].languages| chiavi)}} -->
+<p *ngFor="let lingua of infoNazione[0].languages; let i = index">Lingua {{i}}: {{listaChiaviLingua(lingua,i)}}</p>
+</ng-container>

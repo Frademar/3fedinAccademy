@@ -1,0 +1,7 @@
+<ng-container *ngIf="listaNazioni">
+    <ul>
+        <li *ngFor="let nazione of listaNazioni" [routerLink]="['/dettagli',nazione.name.common]">
+            {{nazione.name.common}}
+        </li>
+    </ul>
+</ng-container>
