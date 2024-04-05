@@ -1,0 +1,73 @@
+<div class="vh-100 d-flex align-items-center mt-5">
+    <form [formGroup]="registrazione" class=" d-flex flex-column align-items-center bg-warning w-50 mx-auto rounded mb-5 pb-4">
+        <h2 class="text-center mb-4 mt-2">Registrati</h2>
+        <label for="nome">Immetti il nome:</label>
+        <input class="align-self-center w-50" type="text" id="nome" formControlName="nome">
+        <ng-container *ngIf="registrazione.controls.nome.errors?.['required']">
+            <p>*Compila il campo nome!</p>
+        </ng-container>
+        <label for="cognome">Inserisci il cognome:</label>
+        <input class="align-self-center w-50" type="text" id="cognome" formControlName="cognome">
+        <ng-container *ngIf="registrazione.controls.cognome.errors?.['required']">
+            <p>*Campo cognome non inserito!</p>
+        </ng-container>
+        <label for="eta">La tua età biologica:</label>
+        <input class="align-self-center" type="number"  id="eta" formControlName="eta" style="width: fit-content;">
+        <ng-container *ngIf="registrazione.controls.eta.errors?.['required']">
+            <p>*Ti dimentichi dell'età!</p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.eta.errors?.['min']">
+            <p>*L'età deve essere un valore positivo!</p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.eta.errors?.['max']">
+            <p>*L'età inserita non si attiene ai nostri canoni!</p>
+        </ng-container>
+        <label for="foto">Foto tessera:</label>
+        <input class="align-self-center w-50" type="text" id="foto" formControlName="foto">
+        <ng-container *ngIf="registrazione.controls.foto.errors?.['required']">
+            <p>*Inserisci un percorso!</p>
+        </ng-container>
+        <label for="ruolo">Di cosa ti occupi:</label>
+        <input class="align-self-center w-50" type="text" id="ruolo" formControlName="ruolo">
+        <ng-container *ngIf="registrazione.controls.ruolo.errors?.['required']">
+            <p>*Impiegato, tirocinante o disoccupato!</p>
+        </ng-container>
+        <label for="email">La tua email:</label>
+        <input class="align-self-center w-50" type="text" id="email" formControlName="email">
+        <ng-container *ngIf="registrazione.controls.email.errors?.['required']">
+            <p>*Email non convalidata!</p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.email.errors?.['email']">
+            <p>*Campo email non corretto!</p>
+        </ng-container>
+        <label for="tel">Recapito telefonico:</label>
+        <input class="align-self-center " type="text" id="tel" formControlName="tel" style="width: fit-content;">
+        <ng-container *ngIf="registrazione.controls.tel.errors?.['required']">
+            <p>*Compila il campo</p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.tel.errors?.['pattern']">
+            <p>*Formato del telefono è composto da:<br>&nbsp;&nbsp;&nbsp;&nbsp;- +'prefisso';<br>&nbsp;&nbsp;&nbsp;&nbsp;- uno spazio o carattere di tabulazione;<br>&nbsp;&nbsp;&nbsp;&nbsp;- il tuo numero di telefono.
+            </p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.tel.errors?.['minlength']">
+            <p>*Non puoi inserire MENO di 10 cifre.</p>
+        </ng-container>
+        <ng-container *ngIf="registrazione.controls.tel.errors?.['maxlength']">
+            <p>*Non puoi inserire PiU' di 10 cifre. </p>
+        </ng-container>
+        <label for="sede">Dove sei ubicato:</label>
+        <input class="align-self-center w-50" type="text" id="sede" formControlName="sede">
+        <ng-container *ngIf="registrazione.controls.sede.errors?.['required']">
+            <p>*E' richiesto il nome della tua città!</p>
+        </ng-container>
+        <label for="mappa">Condividi la tua posizione:</label>
+        <input class="align-self-center w-50" type="text" id="mappa" formControlName="mappa">
+        <ng-container *ngIf="registrazione.controls.mappa.errors?.['required']">
+            <p>*Link della mappa presa da Google Maps!</p>
+        </ng-container>
+        <button type="submit" class="btn btn-outline-danger w-50 mx-auto mt-4">Registrati</button>
+    </form>
+</div>
+{{registrazione.value | json}}
+
+

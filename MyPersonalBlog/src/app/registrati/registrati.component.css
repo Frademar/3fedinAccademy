@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap');
+
+h2{
+   color: #442D1B;
+   font-family: "Abril Fatface", serif;
+}
+
+form{
+    font-family: "Reem Kufi Fun", sans-serif;
+}
+
+p{
+    color:crimson;
+}
